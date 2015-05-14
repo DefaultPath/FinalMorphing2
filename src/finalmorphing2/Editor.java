@@ -77,8 +77,11 @@ public class Editor extends JPanel  implements MouseMotionListener
             }
             g.setColor(Color.black);
         }
+        /*for(int index=0;index<punti.twins.size();index++)
+        {
+            
+        }*/
     }
-
     public boolean clicked(double x, double y, double px, double py)
     {
         Dimension d = this.getSize();

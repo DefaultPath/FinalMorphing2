@@ -22,7 +22,7 @@ public class Triangolo
         latoAC=Math.sqrt((v3.getX()-v1.getX()))*((v3.getX()-v1.getX())) + (v3.getY()-v1.getY())*(v3.getY()-v1.getY());
         latoBC=Math.sqrt(v3.getX()-v3.getX())*(v3.getX()-v3.getX()) + ((v2.getY()-v3.getY())*(v2.getY()-v3.getY()));
     }
-    boolean belongTriangle(Punto p)
+    public boolean belongTriangle(Punto p)
     {
         double s,t,r;
         s = 1/(2*this.getArea())*(v1.getY()*v3.getX() - v1.getX()*v3.getY() + (v3.getY() - v1.getY())*p.getX() + (v1.getX() - v3.getX())*p.getY());
