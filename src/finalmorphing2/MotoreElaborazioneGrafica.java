@@ -20,7 +20,7 @@ public class MotoreElaborazioneGrafica
         BufferedImage img;
         try 
         {
-               img = ImageIO.read(this.getClass().getClassLoader().getResource("dissolvenze/images/sorgente.jpg"));//Prende la prima immagine
+               img = ImageIO.read(this.getClass().getClassLoader().getResource("finalmorphing2/image1.jpg"));//Prende la prima immagine
                sorgente=new Immagine(img);
                result = new Immagine(img.getWidth(),img.getHeight());
         } 
@@ -31,7 +31,7 @@ public class MotoreElaborazioneGrafica
         }	
         try 
         {
-            img =ImageIO.read(this.getClass().getClassLoader().getResource("dissolvenze/images/destinazione.jpg"));
+            img =ImageIO.read(this.getClass().getClassLoader().getResource("finalmorphing2/image1.jpg"));
             destinazione = new Immagine(img);
         } 
         catch (Exception e) 

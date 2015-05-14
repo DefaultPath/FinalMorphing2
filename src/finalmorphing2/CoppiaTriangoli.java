@@ -11,13 +11,13 @@ package finalmorphing2;
  */
 public class CoppiaTriangoli 
 {
-    public Punto sorgente,destinazione;
+    public final Triangolo sorgente,destinazione;
     public CoppiaTriangoli(Triangolo t1,Triangolo t2)
     {
-        sorgente=a;
-        destinazione=b;
-        a.myTwin = b;
-        b.myTwin = a;
+	sorgente=t1;
+	destinazione=t2;
+	t1.myTwin=t2;
+	t2.myTwin=t1;
     }
     
     //public void setColor()

@@ -13,6 +13,7 @@ public class Triangolo
 {
     private Punto v1,v2,v3;
     private final double latoAB,latoAC,latoBC;
+    public  Triangolo myTwin;
     public Triangolo(Punto a,Punto b,Punto c)
     {
         v1=a;
@@ -21,6 +22,7 @@ public class Triangolo
         latoAB=Math.sqrt((v2.getX()-v1.getX()))*Math.sqrt((v2.getX()-v1.getX())) + (v2.getY()-v1.getX())*(v2.getY()-v1.getX());
         latoAC=Math.sqrt((v3.getX()-v1.getX()))*((v3.getX()-v1.getX())) + (v3.getY()-v1.getY())*(v3.getY()-v1.getY());
         latoBC=Math.sqrt(v3.getX()-v3.getX())*(v3.getX()-v3.getX()) + ((v2.getY()-v3.getY())*(v2.getY()-v3.getY()));
+	myTwin=null;
     }
     public boolean belongTriangle(Punto p)
     {
