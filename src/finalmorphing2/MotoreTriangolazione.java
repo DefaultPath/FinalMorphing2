@@ -12,18 +12,23 @@ import java.util.ArrayList;
  */
 public class MotoreTriangolazione 
 {
-     ArrayList<CoppiaTriangoli> couple = new ArrayList();
+     ArrayList<CoppiaTriangoli> coppie = new ArrayList();
     public MotoreTriangolazione(Triangolo t1Editor1,Triangolo t1Editor2,Triangolo t2Editor1,Triangolo t2Editor2)            
     {
-        couple.add(new CoppiaTriangoli(t1Editor1,t1Editor2));
-	couple.add(new CoppiaTriangoli(t2Editor1,t2Editor2));
+        coppie.add(new CoppiaTriangoli(t1Editor1,t1Editor2));
+	coppie.add(new CoppiaTriangoli(t2Editor1,t2Editor2));
     }
-    public void AggiungiCoppia(CoppiaTriangoli t)
+    
+    public Triangolo trovaTriangoloContenitoreDi(Punto p)
     {
-	couple.add(t);
+        return t;
     }
-    /*public Triangolo CreaTriangolo(Punto p)
+    
+    public void AggiungiPunto(Punto p)
     {
-	for(int i=0;i<)
-    }*/
+        Triangolo contenitore = trovaTriangoloContenitoreDi(p);
+        //rimuovo la coppia che contiene questo triangolo
+        //trovo i tre triangoli in entrambi gli editor
+	coppie.add(t);
+    }
 }

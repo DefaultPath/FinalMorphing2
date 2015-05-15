@@ -209,4 +209,8 @@ public class Editor extends JPanel  implements MouseMotionListener
         if (DEBUG)
             System.out.println(s);
     }
+    public CoppiaTriangoli creaCoppiaTriangoli(Punto p)
+    {
+                   
+    }
 }
