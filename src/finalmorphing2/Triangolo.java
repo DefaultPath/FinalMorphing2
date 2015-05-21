@@ -11,7 +11,7 @@ package finalmorphing2;
  */
 public class Triangolo 
 {
-    private Punto v1,v2,v3;
+    public Punto v1,v2,v3;
     private final double latoAB,latoAC,latoBC;
     public  Triangolo myTwin;
     public Triangolo(Punto a,Punto b,Punto c)
