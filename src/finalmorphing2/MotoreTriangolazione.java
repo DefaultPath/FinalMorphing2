@@ -17,8 +17,8 @@ public class MotoreTriangolazione
     ArrayList<CoppiaTriangoli> coppie = new ArrayList(); 
     public MotoreTriangolazione(Triangolo t1Editor1,Triangolo t1Editor2,Triangolo t2Editor1,Triangolo t2Editor2)            
     {
-        coppie.add(new CoppiaTriangoli(t1Editor1,t1Editor2));
-	coppie.add(new CoppiaTriangoli(t2Editor1,t2Editor2));
+        coppie.add(new CoppiaTriangoli(t1Editor1,t1Editor2,0));
+	coppie.add(new CoppiaTriangoli(t2Editor1,t2Editor2,0));
 	index=0;
     }
     public CoppiaTriangoli trovaTriangoliContenitoriDi(Punto p )//Chisono = 0 sorgete chisono=1 destinatario
@@ -51,9 +51,9 @@ public class MotoreTriangolazione
 
 	    CoppiaTriangoli contenitore = trovaTriangoliContenitoriDi(p);
 	    Punto vertice1,vertice2,vertice3;
-	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v2,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v2,p)));
-	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v2,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v2,contenitore.destinazione.v3,p)));
-	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v3,p)));
+	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v2,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v2,p),0));
+	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v2,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v2,contenitore.destinazione.v3,p),0));
+	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v3,p),0));
             coppie.remove(contenitore);
 
             

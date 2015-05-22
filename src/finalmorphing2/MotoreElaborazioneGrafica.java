@@ -42,7 +42,17 @@ public class MotoreElaborazioneGrafica
         }
 
     }
-
+    public void elaborate (double percent)
+    {
+     Pixel p;
+     for(int y=0;i<sorgente.altezza;i++)
+         for(int x=0;j<sorgente.larghezza;j++)
+         {
+             Coppia t = trovaContenitoreDi(x,y);
+             
+         }
+         
+    }
     /*public void elaborate(double percent)
     {
 	    Pixel p;
