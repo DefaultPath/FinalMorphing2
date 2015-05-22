@@ -42,12 +42,7 @@ public class MotoreElaborazioneGrafica
         }
 
     }
-    public void elaborate(double frame)
-    {
-        Pixel p;
-        for(int i=0;i<t.coppie.size();i++)
-            for(int j=0;j<t.coppie.get(i).sorgente.)
-    }
+
     /*public void elaborate(double percent)
     {
 	    Pixel p;

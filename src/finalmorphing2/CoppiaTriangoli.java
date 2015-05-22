@@ -12,6 +12,7 @@ package finalmorphing2;
 public class CoppiaTriangoli 
 {
     public final Triangolo sorgente,destinazione;
+    public Triangolo finale;
     public CoppiaTriangoli(Triangolo t1,Triangolo t2)
     {
 	sorgente=t1;
@@ -19,6 +20,8 @@ public class CoppiaTriangoli
 	t1.myTwin=t2;
 	t2.myTwin=t1;
     }
-    
-    //public void setColor()
+    private void GeneraTriangoloFinale(double frame)
+    {
+        
+    }
 }
