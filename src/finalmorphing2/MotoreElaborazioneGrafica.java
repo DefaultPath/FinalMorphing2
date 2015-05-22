@@ -12,11 +12,12 @@ public class MotoreElaborazioneGrafica
 {
     public Immagine sorgente;
     public Immagine destinazione;
-    
+    public MotoreTriangolazione t;
     public Immagine result;
    
-    public MotoreElaborazioneGrafica()
+    public MotoreElaborazioneGrafica(MotoreTriangolazione mot)
     {
+        t=mot;
         BufferedImage img;
         try 
         {
@@ -41,7 +42,12 @@ public class MotoreElaborazioneGrafica
         }
 
     }
-
+    public void elaborate(double frame)
+    {
+        Pixel p;
+        for(int i=0;i<t.coppie.size();i++)
+            for(int j=0;j<t.coppie.get(i).sorgente.)
+    }
     /*public void elaborate(double percent)
     {
 	    Pixel p;

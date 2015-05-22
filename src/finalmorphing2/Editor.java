@@ -27,9 +27,10 @@ public class Editor extends JPanel  implements MouseMotionListener
     public boolean modalitaRimozioneAttiva;
     public int altezza,larghezza;
     private boolean DEBUG;
-    
+    public MotoreElaborazioneGrafica mot;
     public Editor(int chisono)
     {
+        
         DEBUG = true;
         ngriglia=chisono;
         primaVolta = true;
@@ -52,8 +53,9 @@ public class Editor extends JPanel  implements MouseMotionListener
         altezza=d.height;
         if (ngriglia==0)
         {
-            g.setColor(Color.green);
-            g.fillRect(0,0,d.width,d.height);
+            //g.setColor(Color.green);
+            g.drawImage(mot.sorgente.toBufferedImage(), 0, 0,d.width,d.height,this);
+            //g.fillRect(0,0,d.width,d.height);
             for(CoppiaPunti p : punti.twins) 
             {
                 if (p.sorgente.selected)
@@ -66,8 +68,9 @@ public class Editor extends JPanel  implements MouseMotionListener
         }
         if (ngriglia==1)
        {
-            g.setColor(Color.red);
-            g.fillRect(0,0,d.width,d.height);
+            //g.setColor(Color.red);
+            g.drawImage(mot.destinazione.toBufferedImage(), 0, 0,d.width,d.height,this);
+            //g.fillRect(0,0,d.width,d.height);
             for (CoppiaPunti p : punti.twins) {
                 if (p.destinazione.selected)
                     g.setColor(Color.yellow);

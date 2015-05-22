@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class MotoreTriangolazione 
 {
+    public int conta = 2;
     private int index;
     ArrayList<CoppiaTriangoli> coppie = new ArrayList(); 
     public MotoreTriangolazione(Triangolo t1Editor1,Triangolo t1Editor2,Triangolo t2Editor1,Triangolo t2Editor2)            
@@ -30,27 +31,37 @@ public class MotoreTriangolazione
 		if(coppie.get(i).sorgente.belongTriangle(p))
 		{
 		    a= coppie.get(i).sorgente;
-		    index=i;		    
-		}
-	    	    {
-		if(coppie.get(i).destinazione.belongTriangle(p.myTwin))
-		{
-		    b= coppie.get(i).destinazione;
-		    index=i;
-		}
-	    }
+		    index=i;		     
+                    if(coppie.get(i).sorgente.myTwin.belongTriangle(p.myTwin))
+                            return coppie.get(i);
+                    else
+                    {
+                        System.err.println("Errore punto messo troppo lontano");
+                        System.exit(10);
+                    }
+                }
 	}
-	t=new CoppiaTriangoli(a,b);
-	    return t;
+        System.err.println("il punto "+p+" non e' contenuto in nesusn triangolo!!!!");
+        System.exit(11);
+        return null;
     }
-	public void AggiungiPunto(Punto p,int chisono)
+    
+	public void AggiungiPunto(Punto p)
 	{
+            
+            if(conta>0)
+            {
 	    CoppiaTriangoli contenitore = trovaTriangoliContenitoriDi(p);
 	    Punto vertice1,vertice2,vertice3;
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v2,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v2,p)));
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v2,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v2,contenitore.destinazione.v3,p)));
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v3,p)));
-	    coppie .remove(contenitore);
+	    AggiungiPunto(p.myTwin);
+            coppie .remove(contenitore);
+            conta--;
+            }
+            
+                       
 	    
 	    //coppie.remove(coppie.indexOf(contenitore));
         //rimuovo la coppia che contiene questo triangolo
