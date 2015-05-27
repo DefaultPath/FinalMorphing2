@@ -13,13 +13,11 @@ import java.util.ArrayList;
 public class MotoreTriangolazione 
 {
     public int conta = 2;
-    private int index;
-    ArrayList<CoppiaTriangoli> coppie = new ArrayList(); 
+    public ArrayList<CoppiaTriangoli> coppie = new ArrayList(); 
     public MotoreTriangolazione(Triangolo t1Editor1,Triangolo t1Editor2,Triangolo t2Editor1,Triangolo t2Editor2)            
     {
         coppie.add(new CoppiaTriangoli(t1Editor1,t1Editor2,0));
-	coppie.add(new CoppiaTriangoli(t2Editor1,t2Editor2,0));
-	index=0;
+	coppie.add(new CoppiaTriangoli(t2Editor1,t2Editor2,0));	
     }
     public CoppiaTriangoli trovaTriangoliContenitoriDi(Punto p )//Chisono = 0 sorgete chisono=1 destinatario
     {
@@ -30,8 +28,7 @@ public class MotoreTriangolazione
 	    
 		if(coppie.get(i).sorgente.belongTriangle(p))
 		{
-		    a= coppie.get(i).sorgente;
-		    index=i;		     
+		    a= coppie.get(i).sorgente;		   		     
                     if(coppie.get(i).sorgente.myTwin.belongTriangle(p.myTwin))
                             return coppie.get(i);
                     else

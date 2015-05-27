@@ -1,6 +1,7 @@
 
 package finalmorphing2;
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class Pixel 
 {
@@ -41,6 +42,15 @@ public class Pixel
             System.out.println("Mi viene chiesto di fare un mix di valore:"+percentForMe);
             return p;
         }
+    }
+    public CoppiaTriangoli TrovaContenitoreDi(ArrayList<CoppiaTriangoli> t,Pixel p,int x,int y)
+    {
+        for(int i=0;i<t.size();i++)
+        {
+            if(t.get(i).sorgente.belongTriangle(p, x, y))
+                return t.get(i);
+        }
+        return null;
     }
     public void setPixelColor(int i)
     {

@@ -35,11 +35,11 @@ public class Triangolo
         else 
             return false;
     }
-        public boolean belongTriangle(Pixel p)
+        public boolean belongTriangle(Pixel p,int x,int y)
     {
         double s,t,r;
-        s = 1/(2*this.getArea())*(v1.getY()*v3.getX() - v1.getX()*v3.getY() + (v3.getY() - v1.getY())*p. + (v1.getX() - v3.getX())*p.getY());
-        t = 1/(2*this.getArea())*(v1.getX()*v2.getX() - v1.getY()*v2.getX() + (v1.getY() - v2.getY())*p.getX() + (v2.getX() - v1.getX())*p.getY());
+        s = 1/(2*this.getArea())*(v1.getY()*v3.getX() - v1.getX()*v3.getY() + (v3.getY() - v1.getY())*x + (v1.getX() - v3.getX())*y);
+        t = 1/(2*this.getArea())*(v1.getX()*v2.getX() - v1.getY()*v2.getX() + (v1.getY() - v2.getY())*x + (v2.getX() - v1.getX())*y);
         r = 1-s-t;
         if(s>0 && t>0 && r>0)
             return true;

@@ -27,10 +27,11 @@ public class Editor extends JPanel  implements MouseMotionListener
     public boolean modalitaRimozioneAttiva;
     public int altezza,larghezza;
     private boolean DEBUG;
+    public MotoreTriangolazione t;
     public MotoreElaborazioneGrafica mot;
     public Editor(int chisono)
     {
-        
+        t=new MotoreTriangolazione(null, null, null, null)
         DEBUG = true;
         ngriglia=chisono;
         primaVolta = true;
@@ -39,6 +40,7 @@ public class Editor extends JPanel  implements MouseMotionListener
         modalitaMovimentoAttiva=true;
         modalitaInserimentoAttiva=false;
         modalitaRimozioneAttiva=false;
+        mot=new MotoreElaborazioneGrafica(t);
     }
     
     public void init(Griglia g)
