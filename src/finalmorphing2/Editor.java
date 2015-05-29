@@ -31,7 +31,7 @@ public class Editor extends JPanel  implements MouseMotionListener
     public MotoreElaborazioneGrafica mot;
     public Editor(int chisono)
     {
-        t=new MotoreTriangolazione(null, null, null, null)
+        t=new MotoreTriangolazione(null, null, null, null);
         DEBUG = true;
         ngriglia=chisono;
         primaVolta = true;

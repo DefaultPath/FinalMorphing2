@@ -17,7 +17,7 @@ public class Punto
         System.out.println("Errore nessun parametro al punto");	
         System.exit(1);
     }
-    public Punto(double x,double y, boolean editable, Punto myTwin)
+    public Punto(double x,double y, boolean editable, Punto myTwin) 
     {
         this.x=x;
         this.y=y;  

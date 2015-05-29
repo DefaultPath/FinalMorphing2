@@ -1,11 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package finalmorphing2;
-
-
-
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 public class MotoreElaborazioneGrafica 
@@ -57,25 +51,60 @@ public class MotoreElaborazioneGrafica
     }
     private Pixel calcoloLambda(Pixel p,int x,int y)
     {
-
-        double[][] m = new double[3][3];
+        double sorpx,destpx,destpy,sorpy;
+        CoppiaTriangoli t=p.TrovaContenitoreDi(this.t.coppie, p, x, y);
+        double[][] m  = new double[3][3];
         double[][] m1 = new double[3][3];
         double[][] m2 = new double[3][3];
         double[][] m3 = new double[3][3];
-        
-        m[0][0]=y;
-        
-        
-        
-        
-        
+        m[0][0]=t.finale.v1.getY();
+        m[0][1]=t.finale.v2.getY();
+        m[0][2]=t.finale.v3.getY();
+        m[1][0]=t.finale.v1.getX();
+        m[1][1]=t.finale.v2.getX();
+        m[1][2]=t.finale.v3.getX();
+        m[2][0]=1;
+        m[2][1]=1;
+        m[2][2]=1;
+        m1[0][0]=y;
+        m1[0][1]=t.finale.v2.getY();
+        m1[0][2]=t.finale.v3.getY();
+        m1[1][0]=x;
+        m1[1][1]=t.finale.v2.getX();
+        m1[1][2]=t.finale.v3.getX();
+        m1[2][0]=1;
+        m1[2][1]=1;
+        m1[2][2]=1;
+        m2[0][0]=t.finale.v1.getY();
+        m2[0][1]=y;
+        m2[0][2]=t.finale.v3.getY();
+        m2[1][0]=t.finale.v1.getX();
+        m2[1][1]=x;
+        m2[1][2]=t.finale.v3.getX();
+        m2[2][0]=1;
+        m2[2][1]=1;
+        m2[2][2]=1;
+        m2[0][0]=t.finale.v1.getY();
+        m2[0][1]=t.finale.v2.getY();
+        m2[0][2]=y;
+        m2[1][0]=t.finale.v1.getX();
+        m2[1][1]=t.finale.v2.getX();
+        m2[1][2]=x;
+        m2[2][0]=1;
+        m2[2][1]=1;
+        m2[2][2]=1;
         double lambda1, lambda2, lambda3;
-        
         lambda1 = this.calcolaDeterminante(m1)/this.calcolaDeterminante(m);
         lambda2 = this.calcolaDeterminante(m2)/this.calcolaDeterminante(m);
         lambda3 = this.calcolaDeterminante(m3)/this.calcolaDeterminante(m);
         
-
+        
+        sorpx=(t.sorgente.v1.getX()*lambda1)+(t.sorgente.v2.getX()*lambda2)+(t.sorgente.v3.getX()*lambda3);
+        destpx=(t.destinazione.v1.getX()*lambda1)+(t.destinazione.v2.getX()*lambda2)+(t.destinazione.v3.getX()*lambda3);
+        sorpy=(t.sorgente.v1.getY()*lambda1)+(t.sorgente.v2.getY()*lambda2)+(t.sorgente.v3.getY()*lambda3);
+        destpy=(t.destinazione.v1.getY()*lambda1)+(t.destinazione.v2.getY()*lambda2)+(t.destinazione.v3.getY()*lambda3);
+        
+        
         return null;    
     }
     private double calcolaDeterminante(double[][] m)
@@ -99,4 +128,3 @@ public class MotoreElaborazioneGrafica
                  result.setPixel(j,i, p);
             }
     }*/
-}
