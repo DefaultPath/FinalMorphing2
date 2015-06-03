@@ -12,7 +12,7 @@ public class Immagine
     private Pixel[][] m;
     public int larghezza;
     public int altezza;
-    BufferedImage result=new BufferedImage(larghezza, altezza, BufferedImage.TYPE_INT_ARGB);
+    BufferedImage result;
     
     public Immagine(int w, int h)
     {
@@ -30,6 +30,7 @@ public class Immagine
     {
         altezza=img.getHeight();
         larghezza=img.getWidth();
+        result = new BufferedImage(larghezza, altezza, BufferedImage.TYPE_INT_ARGB);
         m=new Pixel[altezza][larghezza];
         for(int i=0;i<altezza;i++)
             for(int j=0;j<larghezza;j++)

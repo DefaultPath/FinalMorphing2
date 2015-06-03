@@ -15,7 +15,7 @@ public class MotoreElaborazioneGrafica
         BufferedImage img;
         try 
         {
-               img = ImageIO.read(this.getClass().getClassLoader().getResource("finalmorphing2/images/image1.jpg"));//dovrebbe ,in teoria,prendere la prima immagine ma non gli fa
+               img = ImageIO.read(this.getClass().getClassLoader().getResource("finalmorphing2/images/image1.jpg"));//Dovrebbe prendere la prima immagine ma è un nazista
                sorgente=new Immagine(img);
                result = new Immagine(img.getWidth(),img.getHeight());
         } 
