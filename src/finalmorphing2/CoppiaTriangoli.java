@@ -19,6 +19,7 @@ public class CoppiaTriangoli
 	destinazione=t2;
 	t1.myTwin=t2;
 	t2.myTwin=t1;
+        finale = new Triangolo();
         GeneraTriangoloFinale(perc);
     }
     public final void GeneraTriangoloFinale(double perc)

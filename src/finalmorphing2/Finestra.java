@@ -139,6 +139,8 @@ public class Finestra extends javax.swing.JFrame {
         Dimension d = this.getContentPane().getSize();
         int w = d.width;
         int h = d.height;
+        if(editorSorgente==null)
+            return;
         editorSorgente.setBounds(0,28,w/2,h-30);
         editorDestinazione.setBounds(w/2,28,w/2,h-30);
     }//GEN-LAST:event_formComponentResized

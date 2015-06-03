@@ -15,7 +15,7 @@ public class MotoreElaborazioneGrafica
         BufferedImage img;
         try 
         {
-               img = ImageIO.read(this.getClass().getClassLoader().getResource("finalmorphing2/image1.jpg"));//Prende la prima immagine
+               img = ImageIO.read(this.getClass().getClassLoader().getResource("finalmorphing2/images/image1.jpg"));//dovrebbe ,in teoria,prendere la prima immagine ma non gli fa
                sorgente=new Immagine(img);
                result = new Immagine(img.getWidth(),img.getHeight());
         } 
@@ -26,7 +26,7 @@ public class MotoreElaborazioneGrafica
         }	
         try 
         {
-            img =ImageIO.read(this.getClass().getClassLoader().getResource("finalmorphing2/image1.jpg"));
+            img =ImageIO.read(this.getClass().getClassLoader().getResource("finalmorphing2/images/image2.jpg"));
             destinazione = new Immagine(img);
         } 
         catch (Exception e) 
@@ -45,13 +45,14 @@ public class MotoreElaborazioneGrafica
              p=result.getPixel(x, y);
              CoppiaTriangoli ct = p.TrovaContenitoreDi(this.t.coppie, p, x, y);
              ct.GeneraTriangoloFinale(percent);
-             
+             calcoloLambda(p,x,y,percent);            
          }
          
     }
-    private Pixel calcoloLambda(Pixel p,int x,int y)
+    private Pixel calcoloLambda(Pixel p,int x,int y,double percent)
     {
         double sorpx,destpx,destpy,sorpy;
+        Pixel sorg,dest;
         CoppiaTriangoli t=p.TrovaContenitoreDi(this.t.coppie, p, x, y);
         double[][] m  = new double[3][3];
         double[][] m1 = new double[3][3];
@@ -97,15 +98,14 @@ public class MotoreElaborazioneGrafica
         lambda1 = this.calcolaDeterminante(m1)/this.calcolaDeterminante(m);
         lambda2 = this.calcolaDeterminante(m2)/this.calcolaDeterminante(m);
         lambda3 = this.calcolaDeterminante(m3)/this.calcolaDeterminante(m);
-        
-        
         sorpx=(t.sorgente.v1.getX()*lambda1)+(t.sorgente.v2.getX()*lambda2)+(t.sorgente.v3.getX()*lambda3);
         destpx=(t.destinazione.v1.getX()*lambda1)+(t.destinazione.v2.getX()*lambda2)+(t.destinazione.v3.getX()*lambda3);
         sorpy=(t.sorgente.v1.getY()*lambda1)+(t.sorgente.v2.getY()*lambda2)+(t.sorgente.v3.getY()*lambda3);
         destpy=(t.destinazione.v1.getY()*lambda1)+(t.destinazione.v2.getY()*lambda2)+(t.destinazione.v3.getY()*lambda3);
+        sorg=sorgente.getPixel((int)sorpx, (int)sorpy);
+        dest=destinazione.getPixel((int)destpx, (int)destpy);
         
-        
-        return null;    
+        return sorg.mix(dest, percent);    
     }
     private double calcolaDeterminante(double[][] m)
     {

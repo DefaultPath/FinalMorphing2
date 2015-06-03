@@ -12,7 +12,7 @@ package finalmorphing2;
 public class Triangolo 
 {
     public Punto v1,v2,v3;
-    private final double latoAB,latoAC,latoBC;
+    private double latoAB,latoAC,latoBC;
     public  Triangolo myTwin;
     public Triangolo(Punto a,Punto b,Punto c)
     {
@@ -23,6 +23,12 @@ public class Triangolo
         latoAC=Math.sqrt((v3.getX()-v1.getX()))*((v3.getX()-v1.getX())) + (v3.getY()-v1.getY())*(v3.getY()-v1.getY());
         latoBC=Math.sqrt(v3.getX()-v3.getX())*(v3.getX()-v3.getX()) + ((v2.getY()-v3.getY())*(v2.getY()-v3.getY()));
 	myTwin=null;
+    }
+    public Triangolo()
+    {
+        v1=new Punto(0,0,false,null);
+        v2=new Punto(0,0,false,null);
+        v3=new Punto(0,0,false,null);
     }
     public boolean belongTriangle(Punto p)
     {
