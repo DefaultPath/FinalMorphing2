@@ -37,6 +37,8 @@ public class Finestra extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         action = new javax.swing.JToggleButton();
         remove = new javax.swing.JToggleButton();
+        Process = new javax.swing.JButton();
+        Percelab = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -68,6 +70,25 @@ public class Finestra extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(remove);
+
+        Process.setText("Elaborate");
+        Process.setFocusable(false);
+        Process.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Process.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Process.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProcessActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(Process);
+
+        Percelab.setText("0");
+        Percelab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PercelabActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(Percelab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,8 +166,21 @@ public class Finestra extends javax.swing.JFrame {
         editorDestinazione.setBounds(w/2,28,w/2,h-30);
     }//GEN-LAST:event_formComponentResized
 
+    private void ProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcessActionPerformed
+        editorDestinazione.mot.elaborate(new Double(Percelab.getText()));
+	Immagine fi=new Immagine(editorDestinazione.mot.result.larghezza, editorDestinazione.mot.result.altezza);
+	DisplayFinal f=new DisplayFinal(fi);
+	f.setVisible(true);
+    }//GEN-LAST:event_ProcessActionPerformed
+
+    private void PercelabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PercelabActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PercelabActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Percelab;
+    private javax.swing.JButton Process;
     private javax.swing.JToggleButton action;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToggleButton remove;
