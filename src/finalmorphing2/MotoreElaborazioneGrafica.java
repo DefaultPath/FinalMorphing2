@@ -52,7 +52,8 @@ public class MotoreElaborazioneGrafica
                 if (ct!=null) 
                 {
                     ct.GeneraTriangoloFinale(percent);
-                    result.setPixel(x, y, SetPixelWithLambda(p,x,y,percent));            
+                    result.setPixel(x, y, SetPixelWithLambda(p,x,y,percent));  
+		    System.out.print("HELP");
                 }
             }     
     }
