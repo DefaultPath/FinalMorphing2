@@ -38,22 +38,25 @@ public class MotoreElaborazioneGrafica
     }
     public void elaborate (double percent)
     {
-     Pixel p;
-     for(int y=0;y<sorgente.altezza;y++)
-         for(int x=0;x<sorgente.larghezza;x++)
-	 {
-	     result.setPixel(x, y, sorgente.getPixel(x, y));
-	 }
-     for(int y=0;y<sorgente.altezza;y++)
-         for(int x=0;x<sorgente.larghezza;x++)
-         {
-             p=result.getPixel(x, y);
-             CoppiaTriangoli ct = p.TrovaContenitoreDi(this.t.coppie, p, x, y);
-             ct.GeneraTriangoloFinale(percent);
-             result.setPixel(x, y, SetPixelWithLambda(p,x,y,percent));            
-         }
-         
+        Pixel p;
+        for(int y=0;y<sorgente.altezza;y++)
+            for(int x=0;x<sorgente.larghezza;x++)
+            {
+                result.setPixel(x, y, sorgente.getPixel(x, y));
+            }
+        for(int y=0;y<sorgente.altezza;y++)
+            for(int x=0;x<sorgente.larghezza;x++)
+            {
+                p=result.getPixel(x, y);
+                CoppiaTriangoli ct = p.TrovaContenitoreDi(this.t.coppie, p, x, y);
+                if (ct!=null) 
+                {
+                    ct.GeneraTriangoloFinale(percent);
+                    result.setPixel(x, y, SetPixelWithLambda(p,x,y,percent));            
+                }
+            }     
     }
+    
     private Pixel SetPixelWithLambda(Pixel p,int x,int y,double percent)
     {
         double sorpx,destpx,destpy,sorpy;

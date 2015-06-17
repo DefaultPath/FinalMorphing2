@@ -51,16 +51,9 @@ public class MotoreTriangolazione
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v2,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v2,p),0));
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v2,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v2,contenitore.destinazione.v3,p),0));
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v3,p),0));
-            coppie.remove(contenitore);
-
-            
-                       
-	    
-	    //coppie.remove(coppie.indexOf(contenitore));
-        //rimuovo la coppia che contiene questo triangolo
-        //trovo i tre triangoli in entrambi gli editor
-	//coppie.add(t);
+       
 	}
-    }
+   
+}
 
 

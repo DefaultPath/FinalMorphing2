@@ -17,8 +17,12 @@ public class FinalMorphing2
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Finestra f=new Finestra();
-       f.setVisible(true);
+       
+        FinestraFinal ff = new FinestraFinal();
+        ff.setVisible(true);
+        Finestra f=new Finestra();
+        f.setVisible(true);
+        f.setResultWindow(ff);
     }
     
 }

@@ -11,24 +11,21 @@ import java.awt.Dimension;
  *
  * @author Luca
  */
-public class FinestraFinal extends javax.swing.JFrame {
+public class FinestraFinal extends javax.swing.JFrame 
+{
 
-    DisplayFinal g;
-    /**
-     * Creates new form FinestraFinal
-     * @param a
-     */
-    public FinestraFinal(Immagine a) {
-	initComponents();
-	Dimension d = this.getContentPane().getSize();
-        int w = d.width;
-        int h = d.height;
-	g= new DisplayFinal(a);
-	this.getContentPane().add(g);
-	g.setBounds(0, 0, w, h);
-	g.setPreferredSize(d);
+    public FinestraFinal() 
+    {
+        initComponents();
+        
     }
 
+    public void setResultImage(Immagine a)
+    {
+        this.setSize(a.larghezza,a.altezza);
+        displayFinal1.setImage(a);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,17 +35,30 @@ public class FinestraFinal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        displayFinal1 = new finalmorphing2.DisplayFinal();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout displayFinal1Layout = new javax.swing.GroupLayout(displayFinal1);
+        displayFinal1.setLayout(displayFinal1Layout);
+        displayFinal1Layout.setHorizontalGroup(
+            displayFinal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+        displayFinal1Layout.setVerticalGroup(
+            displayFinal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 628, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+            .addComponent(displayFinal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addComponent(displayFinal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -59,5 +69,6 @@ public class FinestraFinal extends javax.swing.JFrame {
 
 */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private finalmorphing2.DisplayFinal displayFinal1;
     // End of variables declaration//GEN-END:variables
 }

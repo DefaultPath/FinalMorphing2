@@ -21,6 +21,7 @@ public class Immagine
             m=new Pixel[h][w];
             altezza=h;
             larghezza=w;
+            result = new BufferedImage(larghezza, altezza, BufferedImage.TYPE_INT_ARGB);
         }
         else
             System.out.print("Error  value of height or width negative");

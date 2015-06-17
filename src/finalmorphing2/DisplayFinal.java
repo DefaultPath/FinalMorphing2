@@ -7,6 +7,7 @@ package finalmorphing2;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
 /**
@@ -16,15 +17,26 @@ import javax.swing.JPanel;
 public class DisplayFinal extends JPanel
 {
     Immagine f;
-    public DisplayFinal(Immagine g)
+    BufferedImage b;
+    
+    public DisplayFinal()
     {
-	f=g;
+        f = null;
+        b = null;
     }
+    
+    public void setImage(Immagine img)
+    {
+        f = img;
+        b = f.toBufferedImage();
+        repaint();
+    } 
+    
     @Override
     public void paint(Graphics g)
     {
-	Dimension d=this.getSize();
-	
-	g.drawImage(f.toBufferedImage(),0 ,0 ,d.width,d.height, this);
+        Dimension d=this.getSize();
+        if (b!=null) 
+            g.drawImage(b,0 ,0 ,d.width,d.height, this);
     }
 }

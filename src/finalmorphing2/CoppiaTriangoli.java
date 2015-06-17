@@ -11,14 +11,14 @@ package finalmorphing2;
  */
 public class CoppiaTriangoli 
 {
-    public final Triangolo sorgente,destinazione;
+    public Triangolo sorgente,destinazione;
     public Triangolo finale;
     public CoppiaTriangoli(Triangolo t1,Triangolo t2,double perc)
     {
-	sorgente=t1;
-	destinazione=t2;
-	t1.myTwin=t2;
-	t2.myTwin=t1;
+        sorgente=t1;
+        destinazione=t2;
+        t1.myTwin=t2;
+        t2.myTwin=t1;
         finale = new Triangolo();
         GeneraTriangoloFinale(perc);
     }

@@ -7,6 +7,7 @@ public class Finestra extends javax.swing.JFrame {
 
     Editor editorSorgente;
     Editor editorDestinazione;
+    FinestraFinal result;
     
     public Finestra() 
     {
@@ -27,6 +28,7 @@ public class Finestra extends javax.swing.JFrame {
         editorDestinazione.setBounds(w/2,28,w/2,h-30);
         editorDestinazione.init(g);
         
+        result = null; 
         
     }
 
@@ -168,15 +170,18 @@ public class Finestra extends javax.swing.JFrame {
 
     private void ProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcessActionPerformed
         editorDestinazione.mot.elaborate(new Double(Percelab.getText()));
-	Immagine fi=new Immagine(editorDestinazione.mot.result.larghezza, editorDestinazione.mot.result.altezza);
-	DisplayFinal f=new DisplayFinal(fi);
-	f.setVisible(true);
+        result.setResultImage(editorDestinazione.mot.result);
     }//GEN-LAST:event_ProcessActionPerformed
 
     private void PercelabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PercelabActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PercelabActionPerformed
 
+    public void setResultWindow(FinestraFinal f)
+    {
+        result = f;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Percelab;
