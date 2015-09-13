@@ -47,7 +47,7 @@ public class MotoreTriangolazione
 	{
 
 	    CoppiaTriangoli contenitore = trovaTriangoliContenitoriDi(p);
-	    Punto vertice1,vertice2,vertice3;
+	    //Punto vertice1,vertice2,vertice3;
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v2,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v2,p),0));
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v2,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v2,contenitore.destinazione.v3,p),0));
 	    coppie.add(new CoppiaTriangoli(new Triangolo(contenitore.sorgente.v1,contenitore.sorgente.v3,p),new Triangolo(contenitore.destinazione.v1,contenitore.destinazione.v3,p),0));

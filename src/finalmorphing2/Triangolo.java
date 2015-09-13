@@ -48,7 +48,7 @@ public class Triangolo
     }
     double area(double x1, double y1, double x2, double y2, double x3, double y3)
     {
-	return Math.abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0);
+	return Math.abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0);//ERRORE DELLA MORTE DA CORREGGERE?
     }
         public boolean belongTriangle(Pixel p,int x,int y)
     {
@@ -63,8 +63,11 @@ public class Triangolo
 	double tot = area(v1.getX(),v1.getY() , v2.getX(), v2.getY(), v3.getX(), v3.getY());
 	double a = area(x,y , v2.getX(), v2.getY(), v3.getX(), v3.getY());
 	double b = area(v1.getX(),v1.getY() , x, y, v3.getX(), v3.getY());
-	double c = area(v1.getX(),v2.getY() , v2.getX(), v2.getY(), x, y);
-	return (tot == a+b+c);
+	double c = area(v1.getX(),v1.getY() , v2.getX(), v2.getY(), x, y);
+	if (tot == a+b+c)
+	    return true;
+	else
+	    return false;
     }
     public double getPerimetro()
     {
@@ -72,6 +75,10 @@ public class Triangolo
     }
     public double getArea()
     {
-       return Math.sqrt(this.getPerimetro()/2 * (this.getPerimetro()/2 - latoAB) * (this.getPerimetro()/2 - latoBC) * (this.getPerimetro()/2 - latoAC));
+	double presq;
+	double semip;
+	semip=this.getPerimetro()/2;
+	presq=semip * (semip - latoAB) * (semip - latoAC) * (semip - latoBC);
+       return Math.sqrt(presq);
     }
 }
